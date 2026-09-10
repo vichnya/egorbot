@@ -51,7 +51,7 @@ def weatherAPI(sitys):
 
     # создаем словарь с настройками запроса к API
     ID = {
-      'key': '92f34abe07b24a8cbaa125324221205', #id в системе(доступен после регистрации)
+      'key': os.getenv("WEATHER_API_KEY"), #id в системе(доступен после регистрации)
       'lang': 'ru', #язык ответа
       'q': sity, #город
       'days': 1, #количесто дней прогноза
@@ -126,6 +126,7 @@ def tutuAPI(sitys):
 
 def airAPI(sitys):
     """Функция по работе с API по информации о рейсах """
+    import os
     import requests #импорт библиотеки для работы с API
     import random #импорт библиотеки рандомайзера
     import datetime #импорт библиотеки для работы с датой и временем
@@ -188,7 +189,7 @@ def sett_file(file="positive_thoughts.txt"):
 
     return(load) #возвращаем из функции список load
 
-bot = telebot.TeleBot('5384267499:AAEi_cDYq-dQ1AONFKxpUdzNfhKYFxml_LA') #подключение к боту с помощью параметра token
+bot = telebot.TeleBot(os.getenv("BOT_TOKEN")) #подключение к боту с помощью параметра token
 
 @bot.message_handler(commands=['start']) #встроенный из библиотеки декоратор, вызывающий функцию bot_start при получении команды 'start'
 def bot_start(message):
