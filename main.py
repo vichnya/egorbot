@@ -1,4 +1,5 @@
-import telebot #импорт библиотеки для подключения и работы с тг ботом
+import os
+import telebot
 
 # tuple(кортеж) из 10 городов для опрделения прогноза погоды
 sitys_weatther = ('London',
@@ -126,7 +127,6 @@ def tutuAPI(sitys):
 
 def airAPI(sitys):
     """Функция по работе с API по информации о рейсах """
-    import os
     import requests #импорт библиотеки для работы с API
     import random #импорт библиотеки рандомайзера
     import datetime #импорт библиотеки для работы с датой и временем
